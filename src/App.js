@@ -14,6 +14,10 @@ import {orange,purple} from '../node_modules/@material-ui/core/colors';
 import 'fontsource-roboto';
 
 import Typography from '../node_modules/@material-ui/core/Typography';
+import Container from '../node_modules/@material-ui/core/Container';
+
+import Paper from '../node_modules/@material-ui/core/Paper';
+import Grid from '../node_modules/@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   root:{
@@ -67,13 +71,27 @@ function CheckboxExample(){
 function App() {
   return (
     <ThemeProvider theme={theme}>
+    <Container maxWidth="sm">
     <div className="App">
       <header className="App-header">
         <Typography variant="h2">Welcome to MUI</Typography>
         <Typography variant="subtitle1">Learn how to use Material UI</Typography>
         <img src={logo} className="App-logo" alt="logo" />
         <ButtonStyled/>
-        <TextField
+
+       <Grid container spacing={2} justify="center">
+        <Grid item xs={3} sm={6}>
+            <Paper style={{height:75,width:'100%',}} />
+        </Grid>
+        <Grid item xs={3} sm={6}>
+            <Paper style={{height:75,width:'100%',}} />
+        </Grid>
+        <Grid item xs={3} sm={6}>
+            <Paper style={{height:75,width:'100%',}} />
+        </Grid>
+       </Grid>
+
+       <TextField
           variant="outlined"
           color="secondary"
           //type="time"
@@ -94,6 +112,7 @@ function App() {
         </ButtonGroup>
       </header>
     </div>
+    </Container>
     </ThemeProvider>
   );
 }
