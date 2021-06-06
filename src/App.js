@@ -7,6 +7,38 @@ import SaveIcon from '../node_modules/@material-ui/icons/Save';
 import DeleteIcon from '../node_modules/@material-ui/icons/Delete';
 import Checkbox from '../node_modules/@material-ui/core/Checkbox';
 import FormControlLabel from '../node_modules/@material-ui/core/FormControlLabel';
+import TextField from '../node_modules/@material-ui/core/TextField';
+
+import {makeStyles, ThemeProvider, createMuiTheme} from '../node_modules/@material-ui/core/styles';
+import {orange} from '../node_modules/@material-ui/core/colors';
+import {purple} from '../node_modules/@material-ui/core/colors';
+
+const useStyles = makeStyles({
+  root:{
+    border:0,
+    bacground:'linear-gradient(45deg,#fe6b8b,#ff8e53)',
+    borderRadius:15,
+    marginBottom:15,
+    color:'white',
+    padding:'5px 30px'
+  }
+})
+
+const theme = createMuiTheme({
+  palette:{
+    primary:{
+      main:orange[500],
+    },
+    secondary:{
+      main:purple[500],
+    }
+  }
+})
+
+function ButtonStyled(){
+  const classes = useStyles();
+  return <Button className={classes.root}>Test Styled Button</Button>
+}
 
 function CheckboxExample(){
   const [checked,setChecked] = React.useState(true)
@@ -27,9 +59,19 @@ function CheckboxExample(){
 }
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <ButtonStyled/>
+        <TextField
+          variant="outlined"
+          color="secondary"
+          //type="time"
+          type="email"
+          label="Enter your email"
+          placeholder="email@email.com"
+          />
         <CheckboxExample />
         <ButtonGroup>
           <Button 
@@ -43,6 +85,7 @@ function App() {
         </ButtonGroup>
       </header>
     </div>
+    </ThemeProvider>
   );
 }
 
