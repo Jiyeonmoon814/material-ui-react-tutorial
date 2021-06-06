@@ -10,8 +10,10 @@ import FormControlLabel from '../node_modules/@material-ui/core/FormControlLabel
 import TextField from '../node_modules/@material-ui/core/TextField';
 
 import {makeStyles, ThemeProvider, createMuiTheme} from '../node_modules/@material-ui/core/styles';
-import {orange} from '../node_modules/@material-ui/core/colors';
-import {purple} from '../node_modules/@material-ui/core/colors';
+import {orange,purple} from '../node_modules/@material-ui/core/colors';
+import 'fontsource-roboto';
+
+import Typography from '../node_modules/@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root:{
@@ -25,12 +27,17 @@ const useStyles = makeStyles({
 })
 
 const theme = createMuiTheme({
+  typography: {
+    h2:{
+      fontsize:36,
+    }
+  },
   palette:{
     primary:{
       main:orange[500],
     },
     secondary:{
-      main:purple[500],
+      main:purple[300],
     }
   }
 })
@@ -62,6 +69,8 @@ function App() {
     <ThemeProvider theme={theme}>
     <div className="App">
       <header className="App-header">
+        <Typography variant="h2">Welcome to MUI</Typography>
+        <Typography variant="subtitle1">Learn how to use Material UI</Typography>
         <img src={logo} className="App-logo" alt="logo" />
         <ButtonStyled/>
         <TextField
