@@ -19,6 +19,11 @@ import Container from '../node_modules/@material-ui/core/Container';
 import Paper from '../node_modules/@material-ui/core/Paper';
 import Grid from '../node_modules/@material-ui/core/Grid';
 
+import AppBar from '../node_modules/@material-ui/core/AppBar';
+import Toolbar from '../node_modules/@material-ui/core/Toolbar';
+import IconButton from '../node_modules/@material-ui/core/IconButton';
+import Menu from '../node_modules/@material-ui/icons/Menu';
+
 const useStyles = makeStyles({
   root:{
     border:0,
@@ -71,9 +76,18 @@ function CheckboxExample(){
 function App() {
   return (
     <ThemeProvider theme={theme}>
-    <Container maxWidth="sm">
+    <Container maxWidth="xs">
     <div className="App">
       <header className="App-header">
+        <AppBar color="secondary">
+          <Toolbar>
+            <IconButton>
+              <Menu />
+            </IconButton>
+            <Typography variant="h6">MUI Themeing</Typography>
+            <Button>Login</Button>
+          </Toolbar>
+        </AppBar>
         <Typography variant="h2">Welcome to MUI</Typography>
         <Typography variant="subtitle1">Learn how to use Material UI</Typography>
         <img src={logo} className="App-logo" alt="logo" />
